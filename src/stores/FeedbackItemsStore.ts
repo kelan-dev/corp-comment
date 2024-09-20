@@ -86,7 +86,7 @@ export const useFeedbackItemsStore = create<Store>((set, get) => ({
       set(() => ({ feedbackItems: data.feedbacks }));
     } catch (err) {
       if (err instanceof Error) {
-        set(() => ({ error: err.message }));
+        set(() => ({ error: (err as Error).message }));
       } else {
         set(() => ({ error: "Something went wrong" }));
       }
